@@ -6,6 +6,7 @@ import pandas as pd
 
 def main():
     raw_data_address = 'raw_data/1966_2016/raw_data.csv'
+    transformed_data_address = 'transformed_data/1966_2016/transformed_data.csv'
     start_date = datetime.date(year=1966, month=10, day=1)
     end_date = datetime.date(year=2016, month=9, day=30)
     start_longitude, end_longitude = 75, 119
@@ -28,14 +29,31 @@ def main():
     raw_df['time'] = raw_df['time'].apply(lambda time: time.split('T')[0])
     raw_df.rename(columns={'time': 'date'}, inplace=True)
 
-    transformed_df = pd.DataFrame(columns=['month ID', 'sub-region ID', 'occurrence'])
+    transformed_df = pd.DataFrame(data={'month ID':
+                                            [i+1 for i in range(len(months)) for _ in range(len(sub_regions))],
+                                        'sub-region ID':
+                                            [i+1 for _ in range(len(months)) for i in range(len(sub_regions))],
+                                        'occurrence':
+                                            [0 for _ in range(len(months) * len(sub_regions))]})
 
+    month_id, sub_region_id = None, None
     for index, row in raw_df.iterrows():
-        print(index)
+        for (start_date, end_date), m_id in months.items():
+            if start_date <= row['date'] <= end_date:
+                month_id = m_id
+                break
+        for ((start_longitude, end_longitude), (start_latitude, end_latitude)), s_r_id in sub_regions.items():
+            if start_longitude <= row['longitude'] <= end_longitude and \
+                    start_latitude <= row['latitude'] <= end_latitude:
+                sub_region_id = s_r_id
+                break
+        transformed_df.loc[
+            (transformed_df['month ID'] == month_id) & (transformed_df['sub-region ID'] == sub_region_id),
+            'occurrence'] = 1
 
-    print(raw_df.shape)
-    print(raw_df.columns.values)
-    print(raw_df.head())
+    transformed_df.to_csv(transformed_data_address, index=False)
+
+    return
 
 
 if __name__ == '__main__':
