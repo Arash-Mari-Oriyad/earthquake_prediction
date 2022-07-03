@@ -2,7 +2,7 @@ import datetime
 
 
 START_DATE = datetime.date(year=1966, month=10, day=1)
-END_DATE = datetime.date(year=2016, month=9, day=30)
+END_DATE = datetime.date(year=2022, month=6, day=30)
 
 START_LONGITUDE, END_LONGITUDE = 75, 119
 START_LATITUDE, END_LATITUDE = 23, 45
