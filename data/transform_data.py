@@ -3,58 +3,56 @@ from dateutil.relativedelta import relativedelta
 
 import pandas as pd
 
+from configurations import START_DATE, END_DATE, START_LONGITUDE, END_LONGITUDE, START_LATITUDE, END_LATITUDE, \
+    N_HORIZONTAL, N_VERTICAL, TEMPORAL_COLUMN_NAME, SPATIAL_COLUMN_NAME, TARGET,\
+    RAW_DATA_ADDRESS, TRANSFORMED_DATA_ADDRESS
+
 
 def main():
-    raw_data_address = 'raw_data/1966_2016/raw_data.csv'
-    transformed_data_address = 'transformed_data/1966_2016/transformed_data.csv'
-    start_date = datetime.date(year=1966, month=10, day=1)
-    end_date = datetime.date(year=2016, month=9, day=30)
-    start_longitude, end_longitude = 75, 119
-    start_latitude, end_latitude = 23, 45
-    m_h, m_v = 3, 3
-
-    number_of_months = (end_date.year - start_date.year) * 12 + end_date.month - start_date.month + 1
-    months = {((start_date + relativedelta(months=i)).strftime('%Y-%m-%d'),
-               (start_date + relativedelta(months=i+1) - datetime.timedelta(days=1)).strftime('%Y-%m-%d')): i+1
-              for i in range(number_of_months)}
-    longitude_delta = (end_longitude - start_longitude) / m_h
-    latitude_delta = (end_latitude - start_latitude) / m_v
-    sub_regions = {((start_longitude + longitude_delta * i, start_longitude + longitude_delta * (i+1)),
-                    (end_latitude - latitude_delta * (j+1), end_latitude - latitude_delta * j)):
-                       m_v*i + j + 1
-                   for i in range(m_h)
-                   for j in range(m_v)}
-
-    raw_df = pd.read_csv(raw_data_address)[['time', 'latitude', 'longitude', 'mag']]
-    raw_df['time'] = raw_df['time'].apply(lambda time: time.split('T')[0])
-    raw_df.rename(columns={'time': 'date'}, inplace=True)
-
-    transformed_df = pd.DataFrame(data={'month ID':
-                                            [i+1 for i in range(len(months)) for _ in range(len(sub_regions))],
-                                        'sub-region ID':
-                                            [i+1 for _ in range(len(months)) for i in range(len(sub_regions))],
-                                        'occurrence':
+    print("The data transformation process is started!")
+    number_of_months = (END_DATE.year - START_DATE.year) * 12 + END_DATE.month - START_DATE.month + 1
+    print(f"Number of months = {number_of_months}")
+    months = {
+        ((START_DATE + relativedelta(months=i)).strftime("%Y-%m-%d"),
+         (START_DATE + relativedelta(months=i + 1) - datetime.timedelta(days=1)).strftime("%Y-%m-%d")): i + 1
+        for i in range(number_of_months)
+    }
+    longitude_delta = (END_LONGITUDE - START_LONGITUDE) / N_HORIZONTAL
+    latitude_delta = (END_LATITUDE - START_LATITUDE) / N_VERTICAL
+    sub_regions = {
+        ((START_LONGITUDE + longitude_delta * i, START_LONGITUDE + longitude_delta * (i + 1)),
+         (END_LATITUDE - latitude_delta * (j + 1), END_LATITUDE - latitude_delta * j)): N_VERTICAL * i + j + 1
+        for i in range(N_HORIZONTAL)
+        for j in range(N_VERTICAL)}
+    print(f"number of sub-regions = {len(sub_regions)}")
+    raw_df = pd.read_csv(RAW_DATA_ADDRESS)[["time", "latitude", "longitude", "mag"]]
+    print(f"Raw data shape = {raw_df.shape}")
+    raw_df["time"] = raw_df["time"].apply(lambda time: time.split('T')[0])
+    raw_df.rename(columns={"time": "date"}, inplace=True)
+    transformed_df = pd.DataFrame(data={TEMPORAL_COLUMN_NAME:
+                                            [i + 1 for i in range(len(months)) for _ in range(len(sub_regions))],
+                                        SPATIAL_COLUMN_NAME:
+                                            [i + 1 for _ in range(len(months)) for i in range(len(sub_regions))],
+                                        TARGET:
                                             [0 for _ in range(len(months) * len(sub_regions))]})
-
-    month_id, sub_region_id = None, None
+    temp_month_id, temp_sub_region_id = None, None
     for index, row in raw_df.iterrows():
-        for (start_date, end_date), m_id in months.items():
-            if start_date <= row['date'] <= end_date:
-                month_id = m_id
+        for (start_date, end_date), month_id in months.items():
+            if start_date <= row["date"] <= end_date:
+                temp_month_id = month_id
                 break
-        for ((start_longitude, end_longitude), (start_latitude, end_latitude)), s_r_id in sub_regions.items():
-            if start_longitude <= row['longitude'] <= end_longitude and \
-                    start_latitude <= row['latitude'] <= end_latitude:
-                sub_region_id = s_r_id
+        for ((start_longitude, end_longitude), (start_latitude, end_latitude)), sub_region_id in sub_regions.items():
+            if start_longitude <= row["longitude"] <= end_longitude and \
+                    start_latitude <= row["latitude"] <= end_latitude:
+                temp_sub_region_id = sub_region_id
                 break
-        transformed_df.loc[
-            (transformed_df['month ID'] == month_id) & (transformed_df['sub-region ID'] == sub_region_id),
-            'occurrence'] = 1
-
-    transformed_df.to_csv(transformed_data_address, index=False)
-
+        transformed_df.loc[(transformed_df[TEMPORAL_COLUMN_NAME] == temp_month_id) &
+                           (transformed_df[SPATIAL_COLUMN_NAME] == temp_sub_region_id), TARGET] = 1
+    print(f"Transformed data shape = {transformed_df.shape}")
+    transformed_df.to_csv(TRANSFORMED_DATA_ADDRESS, index=False)
+    print("The data transformation process is finished!")
     return
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
