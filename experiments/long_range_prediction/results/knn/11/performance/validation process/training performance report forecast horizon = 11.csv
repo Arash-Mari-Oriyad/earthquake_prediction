@@ -1,0 +1,79 @@
+model name,history length,feature or covariate set,AUPR,AUC,likelihood
+knn,1,occurrence t,0.5763906229804228,0.6493720071801045,6.085177934291522
+knn,2,occurrence t-1,0.8272201927359517,0.33324411419694794,0.7325407979021121
+knn,2,"occurrence t-1 , occurrence t",0.5168406939780902,0.7119823405958818,0.6045149597707379
+knn,3,occurrence t-1,0.5599341249549951,0.6673020596029569,5.8459282534789665
+knn,3,"occurrence t-1 , occurrence t-2",0.5142739398544088,0.7149402575666001,0.6062592676342162
+knn,3,"occurrence t-1 , occurrence t-2 , occurrence t",0.4963115999723166,0.729869888352384,0.5835560313100768
+knn,4,occurrence t-3,0.557384209957968,0.6691056378124508,0.6273633242507617
+knn,4,"occurrence t-3 , occurrence t-1",0.5090421828000449,0.7244773442324091,0.5961179930159892
+knn,4,"occurrence t-3 , occurrence t-1 , occurrence t",0.49112341827920825,0.7480359477036828,0.5704955657109477
+knn,4,"occurrence t-3 , occurrence t-1 , occurrence t , occurrence t-2",0.47752421197970163,0.7450938788930204,0.5667046657693591
+knn,5,occurrence t-3,0.5562862000687531,0.6708958931665879,0.6493559156250642
+knn,5,"occurrence t-3 , occurrence t-1",0.5087692383899283,0.7260562631195561,0.5938781529585666
+knn,5,"occurrence t-3 , occurrence t-1 , occurrence t-4",0.4869510649669466,0.7498485234061633,0.5689129172527148
+knn,5,"occurrence t-3 , occurrence t-1 , occurrence t-4 , occurrence t",0.47888358743869314,0.7625213918611963,0.5575139790849826
+knn,5,"occurrence t-3 , occurrence t-1 , occurrence t-4 , occurrence t , occurrence t-2",0.47484005637123,0.7707543130435485,0.5565002913427163
+knn,6,occurrence t-5,0.5503018789171781,0.6777759600586517,0.6273827676686716
+knn,6,"occurrence t-5 , occurrence t-1",0.5016283004285584,0.7330302454997988,0.6134437587084729
+knn,6,"occurrence t-5 , occurrence t-1 , occurrence t-3",0.4859824340489035,0.7600051973302419,0.5572497467259057
+knn,6,"occurrence t-5 , occurrence t-1 , occurrence t-3 , occurrence t-4",0.4750324260887467,0.772996166632332,0.5487261666162564
+knn,6,"occurrence t-5 , occurrence t-1 , occurrence t-3 , occurrence t-4 , occurrence t",0.4707003752029859,0.7768362665934193,0.5539547860705386
+knn,6,"occurrence t-5 , occurrence t-1 , occurrence t-3 , occurrence t-4 , occurrence t , occurrence t-2",0.4682260399565922,0.7835086422446004,0.5460934731668828
+knn,7,occurrence t-5,0.5486310312595178,0.6790414462828256,0.6323367663426634
+knn,7,"occurrence t-5 , occurrence t-1",0.5001894206839549,0.7340984065121996,0.5884786281247486
+knn,7,"occurrence t-5 , occurrence t-1 , occurrence t-6",0.4804884796079695,0.7596794062311303,0.566936885373426
+knn,7,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3",0.4692123714007639,0.7788852444024857,0.5594406570495317
+knn,7,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-4",0.46531730188922543,0.7801171077033147,0.5530823907010531
+knn,7,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t",0.46271492294332894,0.7851790437997335,0.5515042462669062
+knn,7,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t , occurrence t-2",0.4527548973528858,0.7925870339663443,0.5436235823490058
+knn,8,occurrence t-5,0.5479156392831418,0.6792569303194496,0.6312190993449425
+knn,8,"occurrence t-5 , occurrence t-1",0.4997733803697474,0.7342737336577805,0.5884365108696914
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6",0.4800810154680536,0.7595982089976546,0.5713634714416741
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3",0.4688829968966998,0.7787150945758892,0.553917036104548
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-7",0.46456712749330165,0.7824991454495611,0.546648853471837
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-7 , occurrence t-4",0.4609205368567052,0.7855193466834983,0.5463724445550889
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-7 , occurrence t-4 , occurrence t",0.45660048100289663,0.7941355841571425,0.5368207740814044
+knn,8,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-7 , occurrence t-4 , occurrence t , occurrence t-2",0.45816251222223886,0.7911441499676795,0.5422629738026701
+knn,9,occurrence t-5,0.8079536370903277,0.5,0.6716978980834274
+knn,9,"occurrence t-5 , occurrence t-1",0.4984175012509965,0.7331502916130113,0.5907079523494595
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6",0.4782524893333409,0.7593708154697714,0.569008151330854
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3",0.4676052212099103,0.7773868746121448,0.5627773265367297
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8",0.46237336200500456,0.7823399403471265,0.550141250358898
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4",0.459022360596104,0.7846419173192536,0.5468958293869176
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7",0.45558783217159815,0.7903296709233096,0.5428303822259399
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7 , occurrence t-2",0.4558848746890772,0.7905477813844409,0.5416200663203319
+knn,9,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7 , occurrence t-2 , occurrence t",0.44864704197792715,0.7941003483689997,0.5370372435276736
+knn,10,occurrence t-5,0.546396292291117,0.6787947202709228,0.6365464568325283
+knn,10,"occurrence t-5 , occurrence t-1",0.4979185031442534,0.7337986984284578,0.5984563332302174
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6",0.47803605774623575,0.7598073483709954,0.5659939330204268
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3",0.4670994282208123,0.7776485348819813,0.5622065497228087
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8",0.46234837646036764,0.782408723385446,0.5531012604317708
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4",0.45834111648284004,0.7862739964502594,0.5481418078598751
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7",0.4552770436643102,0.790821676538391,0.5463067721035987
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7 , occurrence t-2",0.45540396867126215,0.7913888189972322,0.5426812233606187
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7 , occurrence t-2 , occurrence t-9",0.4481048144211323,0.7948909576819242,0.5348455631983163
+knn,10,"occurrence t-5 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-8 , occurrence t-4 , occurrence t-7 , occurrence t-2 , occurrence t-9 , occurrence t",0.4483117969476241,0.7971506871672118,0.5349217234909561
+knn,11,occurrence t-5,0.8074608904933815,0.5,13.30013050104864
+knn,11,"occurrence t-5 , occurrence t-1",0.49741656817868724,0.7341164519460752,0.6037427405968737
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10",0.4797950716465198,0.7607700043487715,0.586483415103888
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6",0.4645155745599264,0.7746245787127637,0.554469564309702
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3",0.4602769790692458,0.7859252690802349,0.557346924781844
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4",0.4557394363784724,0.7903399516199173,0.5485461659307233
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t-7",0.454391322652311,0.7958323140900196,0.5481745580813113
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t-7 , occurrence t-8",0.44873475839205157,0.7973924358556208,0.5419685016670285
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t-2",0.445655474233991,0.7988608257229832,0.5421456336138577
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t-2 , occurrence t-9",0.4518585575287229,0.7993772423352903,0.5409907343415081
+knn,11,"occurrence t-5 , occurrence t-1 , occurrence t-10 , occurrence t-6 , occurrence t-3 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t-2 , occurrence t-9 , occurrence t",0.44604598433380893,0.8008663568166993,0.53177413379632
+knn,12,occurrence t-5,0.5450227227229587,0.6786278314691117,0.637543255045303
+knn,12,"occurrence t-5 , occurrence t-11",0.49359817159950525,0.7359742046221472,0.578914916328228
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1",0.477931882804701,0.7640397142356646,0.5549804754595489
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6",0.46632952995624005,0.7791919186432575,0.5476478902797554
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3",0.45928835451932387,0.7886258488805844,0.5416809380025931
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10",0.4537253053457558,0.7984053741728463,0.539775781486159
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4",0.44962364556763795,0.8047204618073331,0.5332750232369217
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4 , occurrence t-7",0.4496210581273523,0.8021149195218431,0.5359337470913659
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4 , occurrence t-7 , occurrence t-8",0.4487517102305742,0.8045446089208337,0.5366587334761164
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t",0.4466337462013036,0.802522640210426,0.529916797955186
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t , occurrence t-2",0.44572587652666273,0.8052588839656116,0.5313461861416305
+knn,12,"occurrence t-5 , occurrence t-11 , occurrence t-1 , occurrence t-6 , occurrence t-3 , occurrence t-10 , occurrence t-4 , occurrence t-7 , occurrence t-8 , occurrence t , occurrence t-2 , occurrence t-9",0.44432124015523966,0.8067977664646508,0.531277984683942

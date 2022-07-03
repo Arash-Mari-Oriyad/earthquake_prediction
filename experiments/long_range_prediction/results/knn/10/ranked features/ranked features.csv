@@ -1,0 +1,13 @@
+rank,history #1 features,history #2 features,history #3 features,history #4 features,history #5 features,history #6 features,history #7 features,history #8 features,history #9 features,history #10 features,history #11 features,history #12 features
+1,occurrence t,occurrence t,occurrence t-2,occurrence t-2,occurrence t-4,occurrence t-4,occurrence t-6,occurrence t-6,occurrence t-6,occurrence t-6,occurrence t-6,occurrence t-6
+2,,occurrence t-1,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t,occurrence t
+3,,,occurrence t-1,occurrence t-3,occurrence t-2,occurrence t-5,occurrence t-4,occurrence t-7,occurrence t-7,occurrence t-7,occurrence t-7,occurrence t-11
+4,,,,occurrence t-1,occurrence t-3,occurrence t-2,occurrence t-2,occurrence t-4,occurrence t-4,occurrence t-4,occurrence t-4,occurrence t-4
+5,,,,,occurrence t-1,occurrence t-3,occurrence t-5,occurrence t-2,occurrence t-2,occurrence t-2,occurrence t-2,occurrence t-7
+6,,,,,,occurrence t-1,occurrence t-3,occurrence t-5,occurrence t-8,occurrence t-9,occurrence t-9,occurrence t-2
+7,,,,,,,occurrence t-1,occurrence t-3,occurrence t-5,occurrence t-5,occurrence t-5,occurrence t-5
+8,,,,,,,,occurrence t-1,occurrence t-3,occurrence t-8,occurrence t-8,occurrence t-8
+9,,,,,,,,,occurrence t-1,occurrence t-3,occurrence t-3,occurrence t-9
+10,,,,,,,,,,occurrence t-1,occurrence t-10,occurrence t-3
+11,,,,,,,,,,,occurrence t-1,occurrence t-10
+12,,,,,,,,,,,,occurrence t-1
