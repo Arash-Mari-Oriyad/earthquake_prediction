@@ -65,10 +65,12 @@ def main():
             calculate_true_negative_rate(testing_predictions_df.copy(), optimal_threshold)
         validation_accuracy_df = pd.DataFrame(data={"accuracy": [validation_accuracy],
                                                     "true positive rate": [validation_true_positive_rate],
-                                                    "true negative rate": [validation_true_negative_rate]})
+                                                    "true negative rate": [validation_true_negative_rate],
+                                                    "optimal threshold": [optimal_threshold]})
         testing_accuracy_df = pd.DataFrame(data={"accuracy": [testing_accuracy],
                                                  "true positive rate": [testing_true_positive_rate],
-                                                 "true negative rate": [testing_true_negative_rate]})
+                                                 "true negative rate": [testing_true_negative_rate],
+                                                 "optimal threshold": [optimal_threshold]})
         accuracy_address = f"{RESULTS_BASE_ADDRESS}/{model}/accuracy/"
         if os.path.exists(accuracy_address):
             shutil.rmtree(accuracy_address)
