@@ -44,16 +44,8 @@ def exhaustive_search(predictions_df):
 
 
 def main():
+    optimal_threshold = 0.5
     for model in MODELS:
-        validation_predictions_address = f"{RESULTS_BASE_ADDRESS}/{model}/{VALIDATION_PREDICTIONS_BASE_ADDRESS}/" \
-                                         f"validation prediction forecast horizon = {FORECAST_HORIZON}.csv"
-        validation_predictions_df = pd.read_csv(validation_predictions_address)[["real", "class 1"]]
-        optimal_threshold = exhaustive_search(validation_predictions_df)
-        validation_accuracy = calculate_accuracy(validation_predictions_df.copy(), optimal_threshold)
-        validation_true_positive_rate = \
-            calculate_true_positive_rate(validation_predictions_df.copy(), optimal_threshold)
-        validation_true_negative_rate = \
-            calculate_true_negative_rate(validation_predictions_df.copy(), optimal_threshold)
         testing_predictions_address = f"{RESULTS_BASE_ADDRESS}/{model}/{TESTING_PREDICTIONS_BASE_ADDRESS}/" \
                                          f"test prediction forecast horizon = {FORECAST_HORIZON}.csv"
         testing_predictions_df = pd.read_csv(testing_predictions_address)[["real", "class 1"]]
@@ -62,10 +54,6 @@ def main():
             calculate_true_positive_rate(testing_predictions_df.copy(), optimal_threshold)
         testing_true_negative_rate = \
             calculate_true_negative_rate(testing_predictions_df.copy(), optimal_threshold)
-        validation_accuracy_df = pd.DataFrame(data={"accuracy": [validation_accuracy],
-                                                    "true positive rate": [validation_true_positive_rate],
-                                                    "true negative rate": [validation_true_negative_rate],
-                                                    "optimal threshold": [optimal_threshold]})
         testing_accuracy_df = pd.DataFrame(data={"accuracy": [testing_accuracy],
                                                  "true positive rate": [testing_true_positive_rate],
                                                  "true negative rate": [testing_true_negative_rate],
@@ -74,7 +62,6 @@ def main():
         if os.path.exists(accuracy_address):
             shutil.rmtree(accuracy_address)
         os.makedirs(accuracy_address)
-        validation_accuracy_df.to_csv(f"{accuracy_address}validation_accuracy.csv", index=False)
         testing_accuracy_df.to_csv(f"{accuracy_address}testing_accuracy.csv", index=False)
     return
 

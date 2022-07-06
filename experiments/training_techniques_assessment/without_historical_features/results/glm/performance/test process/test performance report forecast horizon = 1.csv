@@ -1,0 +1,2 @@
+model name,history length,feature or covariate set,AUC,likelihood,AUPR
+glm,1,occurrence,0.6757620028700443,0.6439525579511785,0.7643354299037766

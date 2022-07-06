@@ -1,0 +1,2 @@
+model name,history length,feature or covariate set,AUC,likelihood,AUPR
+glm,12,"occurrence t, occurrence t-11, occurrence t-1, occurrence t-7, occurrence t-4, occurrence t-6, occurrence t-3, occurrence t-9, occurrence t-2, occurrence t-8, occurrence t-5",0.7895353807287946,0.5562095977830163,0.7808623131588892
