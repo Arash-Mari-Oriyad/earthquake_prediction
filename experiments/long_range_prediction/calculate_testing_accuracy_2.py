@@ -33,14 +33,10 @@ def exhaustive_search(predictions_df):
     thresholds = set(Y_hat)
     thresholds.add(0)
     thresholds.add(1)
-    optimal_accuracy = -INF
-    optimal_threshold = None
-    for threshold in thresholds:
-        accuracy = calculate_accuracy(predictions_df.copy(), threshold)
-        if accuracy >= optimal_accuracy:
-            optimal_accuracy = accuracy
-            optimal_threshold = threshold
-    return optimal_threshold
+    threshold_accuracy_dict = {threshold: calculate_accuracy(predictions_df.copy(), threshold)
+                               for threshold in thresholds}
+    threshold_accuracy_dict = dict(sorted(threshold_accuracy_dict.items(), key=lambda item: item[1]))
+    return list(threshold_accuracy_dict.keys())[int(len(threshold_accuracy_dict) * 95 / 100)]
 
 
 def main():
@@ -61,6 +57,7 @@ def main():
                                              f"test prediction forecast horizon = {forecast_horizon}.csv"
             testing_predictions_df = pd.read_csv(testing_predictions_address)[["real", "class 1"]]
             testing_accuracy = calculate_accuracy(testing_predictions_df.copy(), optimal_threshold)
+            print(testing_accuracy)
             testing_true_positive_rate = \
                 calculate_true_positive_rate(testing_predictions_df.copy(), optimal_threshold)
             testing_true_negative_rate = \
