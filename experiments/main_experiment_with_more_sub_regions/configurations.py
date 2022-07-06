@@ -9,7 +9,7 @@ TESTING_SIZE = 0.3
 
 MODELS = ["knn", "glm"]
 
-HISTORICAL_DATA_BASE_ADDRESS = f"../../data/historical_data/{START_YEAR, END_YEAR}/{N_HORIZONTAL, N_VERTICAL}/" \
+HISTORICAL_DATA_BASE_ADDRESS = f"../../data/historical_data/{START_YEAR}_{END_YEAR}/{N_HORIZONTAL}_{N_VERTICAL}/" \
                                f"{'with_grouping_plan' if GROUPING_PLAN else 'without_grouping_plan'}"
 RESULTS_BASE_ADDRESS = "results"
 VALIDATION_PREDICTIONS_BASE_ADDRESS = "prediction/validation process"

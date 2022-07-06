@@ -9,7 +9,7 @@ from configurations import HISTORICAL_DATA_BASE_ADDRESS, START_YEAR, END_YEAR, F
 
 def main():
     input_data_addresses = \
-        [f"{HISTORICAL_DATA_BASE_ADDRESS}/{START_YEAR}_{END_YEAR}/{FORECAST_HORIZON}/historical_data h={h}.csv"
+        [f"/{FORECAST_HORIZON}/historical_data h={h}.csv"
          for h in HISTORY_LENGTHS]
     for model in MODELS:
         stpredict.whole_as_one(data=input_data_addresses,
