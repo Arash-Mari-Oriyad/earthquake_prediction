@@ -4,8 +4,8 @@ from dateutil.relativedelta import relativedelta
 import pandas as pd
 
 from configurations import START_DATE, END_DATE, START_LONGITUDE, END_LONGITUDE, START_LATITUDE, END_LATITUDE, \
-    N_HORIZONTAL, N_VERTICAL, TEMPORAL_COLUMN_NAME, SPATIAL_COLUMN_NAME, TARGET,\
-    RAW_DATA_ADDRESS, TRANSFORMED_DATA_ADDRESS
+    N_HORIZONTAL, N_VERTICAL, TEMPORAL_COLUMN_NAME, SPATIAL_COLUMN_NAME, TARGET, \
+    RAW_DATA_ADDRESS, TRANSFORMED_DATA_BASE_ADDRESS, GROUPS, GROUPING_PLAN
 
 
 def main():
@@ -49,7 +49,14 @@ def main():
         transformed_df.loc[(transformed_df[TEMPORAL_COLUMN_NAME] == temp_month_id) &
                            (transformed_df[SPATIAL_COLUMN_NAME] == temp_sub_region_id), TARGET] = 1
     print(f"Transformed data shape = {transformed_df.shape}")
-    transformed_df.to_csv(TRANSFORMED_DATA_ADDRESS, index=False)
+    if GROUPING_PLAN:
+        for group in GROUPS:
+            temp_transformed_df = transformed_df[transformed_df['sub-region ID'].isin(group)]
+            temp_transformed_df.to_csv(TRANSFORMED_DATA_BASE_ADDRESS +
+                                       f"/{'_'.join([str(sub_region_id) for sub_region_id in group])}"
+                                       f"/transformed_data.csv", index=False)
+    else:
+        transformed_df.to_csv(TRANSFORMED_DATA_BASE_ADDRESS + '/transformed_data.csv', index=False)
     print("The data transformation process is finished!")
     return
 
