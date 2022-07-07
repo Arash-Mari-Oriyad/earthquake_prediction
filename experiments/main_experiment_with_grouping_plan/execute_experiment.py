@@ -29,8 +29,8 @@ def main():
                                    save_ranked_features=True,
                                    save_predictions=True,
                                    verbose=1)
-            results_address = f"{RESULTS_BASE_ADDRESS}/{'_'.join([str(sub_region_id) for sub_region_id in group])}" \
-                              f"/{model}/"
+            results_address = f"{RESULTS_BASE_ADDRESS}/{model}/" \
+                              f"{'_'.join([str(sub_region_id) for sub_region_id in group])}"
             if os.path.exists(results_address):
                 shutil.rmtree(results_address)
             os.makedirs(results_address)
