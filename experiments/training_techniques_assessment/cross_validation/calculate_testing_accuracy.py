@@ -44,7 +44,8 @@ def exhaustive_search(predictions_df):
 
 
 def main():
-    optimal_threshold = 0.5
+    # optimal threshold on the validation dataset
+    optimal_threshold = 0.3278
     for model in MODELS:
         testing_predictions_address = f"{RESULTS_BASE_ADDRESS}/{model}/{TESTING_PREDICTIONS_BASE_ADDRESS}/" \
                                          f"test prediction forecast horizon = {FORECAST_HORIZON}.csv"
